@@ -17,50 +17,50 @@
 
 
 # Definition for singly-linked list.
-class ListNode:
-    def __init__(self, val=0, next=None):
-        self.val = val
-        self.next = next
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
 
-class Solution:
-    def addTwoNumbers(self, l1: ListNode, l2: ListNode) -> ListNode:
-        """ PROPER SOLUTION, WORKS ON LEET CODE """
+# class Solution:
+#     def addTwoNumbers(self, l1: ListNode, l2: ListNode) -> ListNode:
+        # """ PROPER SOLUTION, WORKS ON LEET CODE """
         # carry value to leap frog in reverse order and carry adding l1.val + l2.val if greater than 10
-        currentCarry = 0
+        # currentCarry = 0
         # declare cur variable to help traverse and add nodes to new list. declare head variable to be the head of the list
-        head = cur = ListNode(0)
+        # head = cur = ListNode(0)
         
         # iterate using a while loop
-        while l1 or l2 or currentCarry:
+        # while l1 or l2 or currentCarry:
             # determine the current value and the carry value
-            currentVal = currentCarry
-            currentVal += 0 if l1 is None else l1.val
-            currentVal += 0 if l2 is None else l2.val
+            # currentVal = currentCarry
+            # currentVal += 0 if l1 is None else l1.val
+            # currentVal += 0 if l2 is None else l2.val
             
-            if currentVal >= 10:
-                currentVal-=10
-                currentCarry = 1
-            else:
-                currentCarry = 0
+            # if currentVal >= 10:
+            #     currentVal-=10
+            #     currentCarry = 1
+            # else:
+            #     currentCarry = 0
             
             # add current value as it will always be at least '1'
-            cur.next = ListNode(currentVal)
-            cur = cur.next
+            # cur.next = ListNode(currentVal)
+            # cur = cur.next
             
             # add base case for iterating linked lists
-            if l1 is None and l2 is None:
-                break
-            elif l1 is None:
-                l2 = l2.next
-            elif l2 is None:
-                l1 = l1.next
-            else:
-                l1 = l1.next
-                l2 = l2.next
+            # if l1 is None and l2 is None:
+            #     break
+            # elif l1 is None:
+            #     l2 = l2.next
+            # elif l2 is None:
+            #     l1 = l1.next
+            # else:
+            #     l1 = l1.next
+            #     l2 = l2.next
         # return next node
-        return head.next
+        # return head.next
         
-        """ FIRST PASS, doesn't pass leet code, but gives the correct answer """
+        # """ FIRST PASS, doesn't pass leet code, but gives the correct answer """
         # newL1 = ""
         # for n in l1[::-1]:
         #     newL1+=str(n)
@@ -74,5 +74,28 @@ class Solution:
         
         # return newResult[::-1]
 
-s = Solution()
-print(s.addTwoNumbers([2,4,3], [5,6,4]))
+# s = Solution()
+# print(s.addTwoNumbers([2,4,3], [5,6,4]))
+
+# class Solution:
+#     def kidsWithCandies(self, candies: List[int], extraCandies: int) -> List[bool]:
+#         greatest = max(candies)
+#         for n in candies:
+#             if n + extraCandies >= greatest:
+#                 return True
+#             else:
+#                 return False
+
+def kidsWithCandies(candies, extraCandies):
+    greatest = max(candies)
+    for i, n in enumerate(candies):
+        # print(i, n)
+        if n+extraCandies >= greatest:
+            candies[i] = True
+        else:
+            candies[i] = False
+    return candies
+
+candies = [2,3,5,1,3]
+extraCandies = 3
+print(kidsWithCandies(candies, extraCandies))
