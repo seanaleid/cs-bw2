@@ -16,13 +16,15 @@
 # Input: [1,1,1,3,3,4,3,2,4,2]
 # Output: true
 
-# class Solution:
-#     def containsDuplicate(self, nums: List[int]) -> bool:
-#         d = dict()
-        
-#         for n in nums:
-#             if n not in d:
-#                 d[n] = n
-#             else:
-#                 return True
-#         return False
+def containsDuplicate(nums):
+    d = dict()
+    
+    for n in nums:
+        if n not in d:
+            d[n] = n
+        else:
+            return True
+    return False
+
+nums = [1,2,3,4]
+print(containsDuplicate(nums))

@@ -85,17 +85,3 @@
 #                 return True
 #             else:
 #                 return False
-
-def kidsWithCandies(candies, extraCandies):
-    greatest = max(candies)
-    for i, n in enumerate(candies):
-        # print(i, n)
-        if n+extraCandies >= greatest:
-            candies[i] = True
-        else:
-            candies[i] = False
-    return candies
-
-candies = [2,3,5,1,3]
-extraCandies = 3
-print(kidsWithCandies(candies, extraCandies))
